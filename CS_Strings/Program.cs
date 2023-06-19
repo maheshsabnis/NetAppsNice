@@ -32,7 +32,6 @@ string finalResult = string.Empty; /* Allocated in Memory with Length as 0 */
 
 foreach (char c in result)
 {
-    
     finalResult += c;
 }
 
@@ -49,5 +48,5 @@ foreach (char c in finalResult)
 }
 
 Console.WriteLine($"Count of white spaces in {finalResult} is = {whiteSpacesCounter}");
-
+ 
 Console.ReadLine();

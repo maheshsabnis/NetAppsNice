@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_FirstApp", "CS_FirstApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_Strings", "CS_Strings\CS_Strings.csproj", "{6115724C-1A69-4368-AE9C-8E78BCABDC2F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OOPs", "OOPs", "{7B66F853-7A34-431F-91D4-9FB3D1F8849F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_SimpleClass", "CS_SimpleClass\CS_SimpleClass.csproj", "{0A7A6E66-B5B0-4192-A4A5-EB2AE8247F0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{6115724C-1A69-4368-AE9C-8E78BCABDC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6115724C-1A69-4368-AE9C-8E78BCABDC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6115724C-1A69-4368-AE9C-8E78BCABDC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A7A6E66-B5B0-4192-A4A5-EB2AE8247F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A7A6E66-B5B0-4192-A4A5-EB2AE8247F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A7A6E66-B5B0-4192-A4A5-EB2AE8247F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A7A6E66-B5B0-4192-A4A5-EB2AE8247F0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A7A6E66-B5B0-4192-A4A5-EB2AE8247F0E} = {7B66F853-7A34-431F-91D4-9FB3D1F8849F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {312A4DD1-D98D-4A39-B08E-E48EFE532826}

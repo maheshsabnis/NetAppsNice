@@ -37,6 +37,40 @@
 	- Vale and Ref types	
 	- The 'char', with size is 2 bytes
 	- The 'string' size is (Length*2 + 2) bytes
+- The 'System.Type' is the Type class that is used to read the 'typeof()' each declaratrion in .NET using the 'GetType()' method
 	
-
-	
+- Object Oriented Programming (OOPs)
+	- Abstratcion and Encapsulation
+		- Data Encapsulation, with Data Members
+		- Behavior Abstratcion with Methods and Properties
+	- Inheritance
+		- we cannot have multiple interitance 
+	- Polymorphism
+- Class
+	- Members with Access Specifiers
+		- public, private, protected, internal, protected internal
+			- public: Visiable to entire application
+			- private: Only within the class, default for each member of the class
+			- protected: Within declaring and derived class in same namespace
+			- internal: Visiable across all classes with the namespace, this is default for all classes and interface 
+			- protected internal: Same as 'internal' but also accessible across derived classed in different assembly
+		- Members Types as follows
+			- Data Members
+			- Properties
+			- Methods
+			- Events 
+	- Modifiers
+		- Static, same as 'shared' thread-safe
+		- abstract, class must be inherited
+			- abstract class and abstract methods
+				- abstract methgod must be overriden 
+		- sealed, class cannot be inherited
+		- virtual, for methods, these have implementation that can be either overriden or may be used as it is by the derived class
+- The 'new' nmoniker, the keyword (aka operator) that is used to instantiate the object
+	- The memory is allocated for the declaration	
+- Code-Debugging
+	- F9 key for Applying Breakpoints
+	- F10, Step Over
+	- F11, Strp into
+	- F5 Run the Application
+		
