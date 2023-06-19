@@ -56,7 +56,9 @@
 			- protected internal: Same as 'internal' but also accessible across derived classed in different assembly
 		- Members Types as follows
 			- Data Members
+				- Private, Public, Protected declarations those holds values for the class
 			- Properties
+				- Intelligent Fields because they have 'setter' and 'getter' blocks for defininmg logic for the private data member
 			- Methods
 			- Events 
 	- Modifiers

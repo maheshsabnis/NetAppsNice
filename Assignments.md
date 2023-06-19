@@ -21,5 +21,20 @@ Perform Following Operations by creating methods in string class
 	- Switch case is same as C++ and JAVA
 
 
+2. (Optional) Create an Employee class with following Properties
+	- EmpNo, EmpName, Designation, DeptName, Salary, Tax
+	- Create EmployeeLogic class that will have methods as follows
+		- void AddEmployee(Employee)
+		- boolean UpdateEmployee(eno, Employee)
+			- if eno is not found or update fails then return false 
+		- boolean DeleteEmployee(eno)
+			- if eno is not found or delete fails then return false 	
+		- GetEmployees()
+			- Return all Employees
+		- Before Add/Update operations make sure that, the 
+			- EmpNo is required and Must not already be present
+			- EmpName is required and cannot have Digits and Special Characters
+			
+
 
 
