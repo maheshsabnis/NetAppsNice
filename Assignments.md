@@ -51,3 +51,18 @@ Perform Following Operations by creating methods in string class
 		}
 4. Create an accountant Application Console Project that will only print the Income Details of Each Employee (Refer: CS_Logger and CS_LoggerUtilizer Projects)
 
+
+ 5. Questionire on OOPs. Try this by creating seperate projects for each point given below, note the result (Error or Sucess )
+	- Can we override public method of abstract class in derived class using private access specifier
+	- Can we have private and protected abstract as well as vertual methods
+	- Can we have abctrat class as static class
+	- Can we override a method more than once
+	- Can we have 2 methods in abstract class with same name and signeture but one is virtual and other is abstract
+	- Can we have static constructir in class, if yes then how and when will it be executed
+	- Can we have static constructor in abstract class
+	- Can we have private as well as protected access specifier on class
+	- Can we have provate as well as protected constructor in the class 	
+	- Can we habe abstract, virtual, protected methods (seperate) in sealed class
+
+
+
