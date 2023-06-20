@@ -76,3 +76,41 @@
 	- F11, Strp into
 	- F5 Run the Application
 		
+
+# Applied OOPs
+- Using the OOPs concepts for Application Development
+- Neatly implement 
+	- Data Encapsulation, aka Properties
+	- Behavior Abstratcion, aka Methods
+		- A Generlize Behavior class that contains definition for generalized Read/Write Requirements  
+		- Using 'abstract' class
+			- It can have following modifiers for methods
+				- The 'virtual' methods
+					- They have implementation
+				- The 'abstract' methods
+					- The do not have any implementation (same as PURE Vurtual Function in C++) 
+			- The abstrct class MUST be derived by the derived class(es)
+				- The drived class MUST 'override' 'abstract' methods of the abstract class else the derive class MUST be modified as 'abstract' class
+				- The derived class may or may not override the virtual methods of the abstract base class instaed derived class can directly access implementation of virtual methods
+	- Inheritence
+		- Code (aka Logic) reusability
+			- Implementation of Open for extension Close for modification  Principal (OCP) 
+	- Polymorphism
+		- Runtime behavior that will be executed for the class method, based on the Invoking object as well as the input parameter(s)  for the method at runtime  
+- Interfaces
+	- Abstract classes are fastest in Cohesive System where all derivations are present within the system itself (Namespace or Assembly)
+	- But if our need is to stablish communication accross systems (Homogeneous or Hetrogeneous) with decoupling then its always receommended to use 'Interface'
+	- The 'interface' is a keyword
+	- Its internal by default
+	- All methods declared in interface uses same access specifier of the interface
+	- Methods does not have any implementation (Note C# 9.0+ the interface method can have a default implementation)
+	- IMP*****
+		- a class can implement one-or-more interfaces
+		- all methods of interface MUST be implemented by class
+		- Interface can be implmented by class using one of the following way
+			- Implicit: Methods are present in class and access by interface reference as well as class instance
+			- Explict: Methods are present in class but they can be accessed only using the interface reference
+				- This is recommended if the class implement multiple interfaces and these interfaces have same methods with same signeture 	
+
+
+
