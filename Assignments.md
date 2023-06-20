@@ -35,6 +35,19 @@ Perform Following Operations by creating methods in string class
 			- EmpNo is required and Must not already be present
 			- EmpName is required and cannot have Digits and Special Characters
 			
+# Date: 20-June-2023
 
-
+1. Complete Problem statement 2 of Day 1 with following MOdifications
+	- Create a Salary Slip for Each Employee (Director, Manager, Consultant) with Gross and NetIncome using the Accountant Class (Refer the code from CS_AppliedOOPs Project)
+	- Modify Get Method for Displaing Employees based on Designation (No formal Designation property Exists in Employee class so build the logic for this)
+2. (Optional)
+	- Show the NetSalary in words 	
+3. Modify the Accountant class that implement following Interface 
+	-  interface IAccountant 
+		- {
+		    GetNetSalary()
+			GetGrossSalaty()
+			GetTax() 
+		}
+4. Create an accountant Application Console Project that will only print the Income Details of Each Employee (Refer: CS_Logger and CS_LoggerUtilizer Projects)
 
