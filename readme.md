@@ -113,4 +113,13 @@
 				- This is recommended if the class implement multiple interfaces and these interfaces have same methods with same signeture 	
 
 
+# Delegate and Event
+- Delegate is like pointer to fucntion
+- Technically
+	- It is a .NET Type that invokes the method with its reference, provide the signeture of method MUST match with the signeture of the delegate
+	- The Delegate encapsulate the method implementation, means we can directly write / provide an implementation to the delegate
+		- Anonymous Methods
+			- Extremly useful when a similar logic is to be executed frequently at various locations in the applicaton e.g. Collection Utilitiy Methods like Sort(), Reverse(), Find(), etc.
+	- Since the delegate is type we can pass it as input parameter to method, if a method is accepting delegate as input parametere then to that method we can pass 'Lambda expression' as inout parameter
+		- Syntax is    '=>'
 
