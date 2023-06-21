@@ -122,4 +122,61 @@
 			- Extremly useful when a similar logic is to be executed frequently at various locations in the applicaton e.g. Collection Utilitiy Methods like Sort(), Reverse(), Find(), etc.
 	- Since the delegate is type we can pass it as input parameter to method, if a method is accepting delegate as input parametere then to that method we can pass 'Lambda expression' as inout parameter
 		- Syntax is    '=>'
+	- Declare Events
+		- The delegate that is used to declare an event MUST hav return type as 'void'
+		- This means that the method that will be raing event will also be void
+		- The event is declared inside the class using delegate and with 'event' keyword
+		- The class that is used to listen to the notification MUST have the subscription of the Event Raiser class
+			- This subscritpion is managed by passing an instance of the event raiser class as   the Constructor parameter to the Lister class  
+	- Asynchronous Programming
+
+- C#  Extensaion Methods
+	- These are those methods which are accessed by the class although they are not present in the class and not even present in it derived class (if any)
+
+	- We add extension method generally for Sealed classes
+	- C# 3.0 Compilation Enhancements
+		- Auto-Implemented Properties
+		- Lambda Expression
+		- Objhect Initializer /  Collection Initilizer
+		- Extension Methods
+	- Mechanism aka rules of Defining Extension Methods
+		- The class containing extension method MUST be Static
+		- The method that is used as extension method MUST be Static
+		- The first parameter of this method MUST be 'this' referred raeefernce of the 'class' or 'interface' for which we are writing an extension method
+
+````csharp
+// 1. The class
+public sealed MyClass {......}
+
+// 2. Extension Method class
+public static MyExtensionClass 
+{
+   public static void MyExtensionMethod(this MyClass m)
+   {
+   
+   }
+}
+
+MyClass m = new MyClass();
+m.MyExtensionMethod();
+````
+
+- Collection Framework
+	- Enhanced approach to store and manipulate data in Application's Memory
+	- Approach to store data in Apps memory w/o any size limit (by default its App Memoru provide by the Runtime)
+	- System.Collections
+		- The Enumerations 
+		- ArrayList
+		- Statck
+		- Queue
+		- .... any many more
+	- All Entries in Collection are stored as 'object'
+- The Generic Framework
+	- An enhancement in Collections to create a 'type-safe' in-memory data storage to store and read data w/o boxing and unboxing
+	- System.Collections.Generics
+		- Generic Interfaces
+````csharp
+			- IEnumerable<T>, IList<T>, ICollection<T>, etc.
+````
+			
 
