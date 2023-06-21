@@ -63,6 +63,19 @@ Perform Following Operations by creating methods in string class
 	- Can we have private as well as protected access specifier on class
 	- Can we have provate as well as protected constructor in the class 	
 	- Can we habe abstract, virtual, protected methods (seperate) in sealed class
+	- 
+
+# Date: 21-June-2023
+
+- Modify the Employee, Director, and Manager Project by Having a Same Dictionay for storing records for all Employees
+- Exeute Following Queries on the Dictionary of Employees
+	- Print Second MAximum Salary for Each Employee Type (Manager, Director, Salas Manager)
+	- Sum of all Salaries by Employee Type
+	- Print Employees of all designations in a specific DeptName
+	- Update Salaries of all Managers for all Departments by 20%
+	- Add an Update ande Delete methods in EmployeeLogic class to Update Employee Record in Dictionary based on EmpNo
+		- Search Record using 'TryGetValue()'
+			- Self Reading for ref and out in C# 
 
 
 
