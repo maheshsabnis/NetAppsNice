@@ -178,5 +178,36 @@ m.MyExtensionMethod();
 ````csharp
 			- IEnumerable<T>, IList<T>, ICollection<T>, etc.
 ````
-			
+		- Classes
+````csharp
+			- List<T>, Queue<T>, Stack<T>, Dictionary<K,V>, etc.
+````
+		- The 'T' is template parameter, that represents the type for which the collection is created
+		- The 'K' and 'V', the Multi-Type Generics
+
+````csharp
+  List<int> intList = new List<int>(); // Generic List instance only for integers
+  List<string> strList = new List<string>();
+````
+	- When declaring Custom Generic types alway set type constraints on it so that the Compiler knows in advances that for which type the generic instance is created and it will inform this to runtime
+
+- Language Integrated Query (LINQ)
+	- a structured mechansim of Querying to In-Memory Collection like Database Queries
+	- a Combination of Extension Methods and Lambda Expression
+	- Enumerations, a class that contains extension methods, all these extension methods exeuted on the Collection Types
+		- The interface 'IEnumerable&lt;T&gt;'  has all extension methods
+			- Where(), Select(), OrderBy(), OrderByDescending(), Join(), GroupBy(), etc.
+			- Each method accepts delegate as input parameter
+				- Action,Action&lt;T&gt;
+				- Func&lt;bool,Expression&gt;
+					- if Expression is evaluated on collection then the bool will be true
+			- Scalar Methods
+				- Sum(), Avg(), Min(), Max(), etc. 
+		- The Imperative Query like SQL is provide as Language Agonistic
+			- select maps with Select
+			- where maps with Where
+			- order by maps with OrderBy
+			- join maps with Join
+
+
 
