@@ -209,6 +209,103 @@ m.MyExtensionMethod();
 			- order by maps with OrderBy
 			- join maps with Join
 
+# Line of Business Apps (LOB)
+- Data Storage
+	- RDBMS
+	- NoSQL
+	- Files
+- Business Processes
+	- Workflows 
+		- Resource Intensive Operations*
+			- Additional Process Utilization 
+		- Resource Intensive Operations Solutons using Threads
+			-  System.Threading Namespace
+				- Threading class
+				- ThreadStart Delegate
+				- Monitor
+				- Mutex
+	
+- UI
+
+# Task Parallel Library (TPL)
+- The Parallel Class
+	- Responsible to request Runtime to allocate threads and perform operations on it
+	- Methods
+		- For(), Used to Process Collection Parallely where each collection is processed on seperate or reused thraed
+		- ForEach(), Split the work to be done into multiple tasks (Threads) and process them parallely
+		- Invoke()
+			- Invokes multiple operations at a time and ask the runtime to execute them on multiple threads
+- The Task Class
+	- Unit of Async Operations performed by Runtime
+	- A Task is a Thread
+	- Default executed Asynchronously
+	- Can Run multiple tasks and establish synchronization across them
+		- Wait()
+			- Wait for  a specific Taks or currently executing task to complete	 
+		- WaitAll()
+			- Wait for all running tasks or array of Specific Tasks to complete 
+		- ContinueWith()
+			- After completing first task take its result and move to the next task
+		- Factory Object
+			- An Object from which a Task can be assigned to perform operation on it  
+			- Of the Type 'TaskFactory', this is used to request to the runtime to create a Schedular and allocate a Thread in it so that the opertaion can be executed Asynchronously 
+		- A 'Result' property, this represents the data returned from Task
+		
+	- .NET Runtime Enhancements because of the Task Class (.NET Framework 4.5 and by default in .NET Core and .NET 5/6/7)
+		- async and await modifiers 
+			- If a method has TailWord as 'Async' then it is executed asynchronously and this method returns a Task Object
+			- E.g.
+				- Resource Intensive Methods are async
+				- Database Operations
+					- Task t = Connection.OpenAsync() 
+				- File Operations
+					- Task t = ReadFileAsync() 
+				- Http / Network Operations
+					- Task t = UploadAsync()	
+		- While writjng code for Asynchronous Operations use the following rules
+			- The Method Must be having TailWord as 'Async', its MUST return Task Object and such Mtheod while calling must be using modifier as 'await' 
+			- e.g.
+			 
+````csharp
+  // Only Task return menas the method is void and is executed asynchronously
+	public async Task ReadDataAsync()
+	{
+	    var data = await File.ReadFileAsync(FILE-NAME);
+	}
+
+	// Calling Method
+
+	await  ReadDataAsync();
+
+	// Method Returns 'string' asynchronously using Task Object Task<string>
+	public async Task<string> ReadDataReturnAsync()
+	{
+	    var data = await File.ReadFileAsync(FILE-NAME);
+		return data;
+	}
+
+	// Calling Method
+
+   string data = await ReadDataReturnAsync();
+
+````
+
+- File IO
+	- System.IO Namepsace
+		- Stream abstract class
+			- FileStream, NetworkStream, and MemoryStream
+				- FileStream
+					- Sync and Async Methods 
+			- StreamReader, StreamWriter
+		- File, FileInfo
+			- Create(), ReadAllText(), ReadLine(), AppendAllText() 
+		- Directory, DirectoryInfo
+		- Practices while Handling Files
+			- Check If File Exists
+			- If File is created based on name passed by the user then make sure that check the non-empty name
+			- Always Close the FileHandle, so that the file is available to other request
+			- Dispose the FileHanlde
+			- Use the Exception Handling using try...catch block to prevent any error  
 
 
 

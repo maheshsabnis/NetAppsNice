@@ -1,4 +1,4 @@
-﻿using CS_LINQ_APPS.Models;
+﻿using CS_Parallel_ProcessCollection.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 
-namespace CS_LINQ_APPS.Database
+namespace CS_Parallel_ProcessCollection.Database
 {
-    public class EmployeesDb :ConcurrentBag<Employee>
+    public class EmployeesDb :List<Employee>
     {
         public EmployeesDb()
         {
@@ -32,6 +32,17 @@ namespace CS_LINQ_APPS.Database
             Add(new Employee() { EmpNo = 18, EmpName = "Rjay", DeptName = "D2", Salary = 30000 });
             Add(new Employee() { EmpNo = 19, EmpName = "Sjay", DeptName = "D3", Salary = 50000 });
             Add(new Employee() { EmpNo = 20, EmpName = "Tjay", DeptName = "D4", Salary = 90000 });
+        }
+    }
+
+
+    public static class ProcessTax
+    {
+        public static Employee CalculateTax(Employee emp)
+        {
+            Thread.Sleep(1000);
+            emp.TDS = emp.Salary * Convert.ToDecimal(0.2);
+            return emp;
         }
     }
 }

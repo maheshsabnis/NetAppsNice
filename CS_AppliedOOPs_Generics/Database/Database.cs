@@ -11,5 +11,14 @@ namespace CS_AppliedOOPsGenerics.Database
     {
         // The String aka Key is DeptName
         public static Dictionary<string, List<Employee>> EmployeesDb = new Dictionary<string, List<Employee>>();
+
+
+
+        private static void doSomething()
+        {
+            var res = from record in EmployeesDb.Values
+                      where record.GetType() == typeof(Manager)
+                      select record.Sum(e => e.Salary);
+        }
     }
 }

@@ -24,7 +24,7 @@ PrintResult(Res_2);
 Console.WriteLine();
 
 Console.WriteLine("Employees in descending order of Name");
-var Res_3 = from emp in employees
+var Res_3 = from emp in employees.AsParallel()
             where emp.Salary > 40000
             orderby emp.EmpName descending
             select emp;
