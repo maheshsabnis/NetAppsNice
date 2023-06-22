@@ -5,6 +5,9 @@ Console.WriteLine("Task Continue");
 
 FilesReader reader = new FilesReader();
 
+Task t1 = Task.Factory.StartNew(() => { 
+   
+});
 
 Task<string> t = Task.Factory.StartNew<string>(() => {
     Console.WriteLine("First Task");

@@ -309,3 +309,50 @@ m.MyExtensionMethod();
 
 
 
+# ADO.NET
+- System.Data Namespace 	
+- System.Data.SqlClient for SQL Server DB
+- SqlConnection
+	- Open(), OpenAsync();
+	- Close(), CloseAsync()
+	- ConnectionString property
+		- When using SQL Server Database with Windows Auth 
+			- "Data Source={SERVER-NAME\INSTANCE-NAME};Initial Catalog={DATABASE-NAME};Integrated Security=SSPI"
+			- OR
+			- "Server={SERVER-NAME\INSTANCE-NAME};Database={DATABASE-NAME};Integrated Security=SSPI"
+		- If using SQL Server Credentials
+			- "Data Source={SERVER-NAME\INSTANCE-NAME};Initial Catalog={DATABASE-NAME};User Id={USER-NAME};Password={PASSWORD}" 
+			- OR
+			- "Server={SERVER-NAME\INSTANCE-NAME};Database={DATABASE-NAME};User Id={USER-NAME};Password={PASSWORD}"
+		- SERVER-NAME: Machine NAme | IP ADDRESS Whene SQL Server Instance is Running
+			- For Local MAchine use  SERVER-NAME  as . (dot) or localhost 
+		- DATABASE-NAME: The name of the database to cdonnected
+		- E.g.
+			- If SQL database instance is on my local machine and database name is 'Company' the connection string will be as follows
+				- "Data Source=.;Initial Catalog=Company;Integrated Security=SSPI"
+			- If User Id = sa and Password=sa the connection string will be 
+				- "Data Source=.;Initial Catalog=Company;User Id=sa; Password=sa"
+- SqlCommand
+	- ExecuteReader()/ExecuteReaderAsync()
+	- ExecuteNonQuery()/ExecuteNonQueryAsync()
+	- ExecuteScalar()/ExecuteScalarAsync()
+- SqlDataRedaer 
+	- Fasted Way to read data provided by database using the Select Query 
+	- The Read(), metjod to start reading from First-Record to Last-record
+	- The Close(), method to close tha reader
+	- Over a single connection we can have 'only one' data reader active
+	- To have multiple data readers i.e. reading data from multiple tables having multiple readers open, then connection string will be
+		 -  "Data Source=.;Initial Catalog=Company;Integrated Security=SSPI;MultipleActiveResultSets=true"
+	- Asynchronous Connection request to SQL Server Database, 
+		-  "Data Source=.;Initial Catalog=Company;Integrated Security=SSPI;MultipleActiveResultSets=true;Asynchronous Processing=true"- In .Net Core (New its .NET 5/6/7), the System.Data.SqlClient package is not by default available we need to install it explicitly
+	- Right-Click on Project, Select 'Manager NuGet Package', This will open the NuGet Package window, there search for System.Data.SqlCLient and onece found click on Install button .
+	- OR
+	- Navigate to Command Prompt (Terminal WIndow for Linux and Mac) (THIS IS required if usinf Visual Studio Code)
+		- Navigate to the project folder (You MUST have bin directly inside this folder)
+		- Runt the Following COmmand to install package for the Project
+			- dotnet add package [PACXKAGE-NAME] -v [VERSION-NUMBER]
+			- e.g.
+				- dotnet add package System.Data.SqlClient  
+
+
+

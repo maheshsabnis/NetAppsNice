@@ -78,4 +78,13 @@ Perform Following Operations by creating methods in string class
 			- Self Reading for ref and out in C# 
 
 
+# Date : 22-06-2023
+
+1. Complete the EmployeeDataAccess class
+	- When passing DeptNo for adding new employee, make sure that the Depratment for the DeptNo is not already full with Employees, if yes then thorw exception that Employee Cannot be inserted
+		- e.g. If for Employee Record DeptNo is 20, and capacity of Department with   
+		- e.g. If for Employee Record DeptNo is 20, and capacity of Department with DeptNo as 50 is already having 50 employees in that department the do not add new employee in it
+2. Create Two Tasks in Continution as follows
+	- Task 1 will create a department
+	- Task 2 will add 10 Employees in thate nely created department
 
