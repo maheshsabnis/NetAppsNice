@@ -88,3 +88,18 @@ Perform Following Operations by creating methods in string class
 	- Task 1 will create a department
 	- Task 2 will add 10 Employees in thate nely created department
 	  
+
+# DateL 23-June-2023
+1. Apply Custom Validation on Employee model that the EmpName Must start from the Upper case character (HINT:Use regular expression)
+2. While adding employee make sure that following rule is followed :
+ When passing DeptNo for adding new employee, make sure that the Depratment for the DeptNo is not already full with Employees, if yes then thorw exception that Employee Cannot be inserted
+		- e.g. If for Employee Record DeptNo is 20, and capacity of Department with   
+		- e.g. If for Employee Record DeptNo is 20, and capacity of Department with DeptNo as 50 is already having 50 employees in that department the do not add new employee in it
+	- If not throws an exception
+3. Create a Conttroller for performing Employees Serach based on Following Search Criterias. MAke sure that there is only single Get Metthod
+	1. By EmpName, 
+	2. By DeptName
+	3. By Designation
+	4. By Location
+	- EmpName and Location
+	

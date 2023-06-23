@@ -520,5 +520,23 @@ dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Company;Integrated S
 				- A Contract interface that executes the Action Method from Controller and generate Response
 	
 
+# REST API Design Practices
+- Always perform Model Validation before the model data is processed
+	 - System.ComponentModel.DataAnnotations
+		- ValidationAttribute abstract class
+			- RequireAttribute, CompareAttribute, StringLengthAttribute, etc.
+	 - Handle Exceptions
+		- Apply Global level exceptions instaed of writing execfption handling in each action method
+			- Middlewares
+- Define Action Method Parameters with Suitable Parameter Binders (Varies case-to-case basis)
+	- FromBody
+	- FromQuery
+	- FromRoute
+	- FromForm
+- Implement suitable security
+	- Users
+	- Roles
+	- Token
+
 
 

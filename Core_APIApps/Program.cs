@@ -23,7 +23,13 @@ builder.Services.AddScoped<IService<Department,int>,DepartmentService>();
 
 // The Request Processing for API Controllers only
 // AddControllersWithViews(), for MVC and API COntrollers
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options => 
+    {
+        // Asking the ASP.NET COre Runtime to Seralize JSON
+        // based on original schema of entities
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+    });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
