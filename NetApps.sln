@@ -58,25 +58,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_LINQ_APPS", "CS_LINQ_APP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "THreadingApp", "THreadingApp", "{2C0CCA7C-CB2D-4C1E-B0CC-360A60243479}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_SimpleThread", "CS_SimpleThread\CS_SimpleThread.csproj", "{DDF90F9F-7724-4A00-B6D6-0810D6E034A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_SimpleThread", "CS_SimpleThread\CS_SimpleThread.csproj", "{DDF90F9F-7724-4A00-B6D6-0810D6E034A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TaskParallelApps", "TaskParallelApps", "{A1C3BD47-9F1B-408D-816F-CEBF4F5C03C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_Parallel_ProcessCollection", "CS_Parallel_ProcessCollection\CS_Parallel_ProcessCollection.csproj", "{F13CA421-7EBE-48DD-813A-BE19A3E5275D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_Parallel_ProcessCollection", "CS_Parallel_ProcessCollection\CS_Parallel_ProcessCollection.csproj", "{F13CA421-7EBE-48DD-813A-BE19A3E5275D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_SImpleFiles", "CS_SImpleFiles\CS_SImpleFiles.csproj", "{AF7429A5-894C-4923-8115-46EC40DB6825}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_SImpleFiles", "CS_SImpleFiles\CS_SImpleFiles.csproj", "{AF7429A5-894C-4923-8115-46EC40DB6825}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_DemoDispose", "CS_DemoDispose\CS_DemoDispose.csproj", "{C58DD2CF-1326-45A2-ABBA-A6F2B2FF16C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_DemoDispose", "CS_DemoDispose\CS_DemoDispose.csproj", "{C58DD2CF-1326-45A2-ABBA-A6F2B2FF16C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_Parallel_Invoke", "CS_Parallel_Invoke\CS_Parallel_Invoke.csproj", "{E4F8D955-B54B-4B3E-B25F-624077407B69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_Parallel_Invoke", "CS_Parallel_Invoke\CS_Parallel_Invoke.csproj", "{E4F8D955-B54B-4B3E-B25F-624077407B69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_TaskBasics", "CS_TaskBasics\CS_TaskBasics.csproj", "{1A9C751E-797F-4E96-924F-7AFF7203BD9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_TaskBasics", "CS_TaskBasics\CS_TaskBasics.csproj", "{1A9C751E-797F-4E96-924F-7AFF7203BD9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_Task_Continue", "CS_Task_Continue\CS_Task_Continue.csproj", "{E88DB5F9-756D-45E3-B993-2E49C2822BDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_Task_Continue", "CS_Task_Continue\CS_Task_Continue.csproj", "{E88DB5F9-756D-45E3-B993-2E49C2822BDC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ADONET", "ADONET", "{BC0D0D0A-DF35-4699-98BD-2D4807283016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_ADOConnected", "CS_ADOConnected\CS_ADOConnected.csproj", "{320F58A6-0CED-4AE3-992C-24818B44E533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CS_ADOConnected", "CS_ADOConnected\CS_ADOConnected.csproj", "{320F58A6-0CED-4AE3-992C-24818B44E533}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiApps", "ApiApps", "{4DE72EE1-04D1-4944-8BA6-8280971085B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core_APIApps", "Core_APIApps\Core_APIApps.csproj", "{A1B56DDD-3255-495B-831F-06F09C6218E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -184,6 +188,10 @@ Global
 		{320F58A6-0CED-4AE3-992C-24818B44E533}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{320F58A6-0CED-4AE3-992C-24818B44E533}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{320F58A6-0CED-4AE3-992C-24818B44E533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B56DDD-3255-495B-831F-06F09C6218E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B56DDD-3255-495B-831F-06F09C6218E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B56DDD-3255-495B-831F-06F09C6218E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B56DDD-3255-495B-831F-06F09C6218E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -213,6 +221,7 @@ Global
 		{1A9C751E-797F-4E96-924F-7AFF7203BD9F} = {A1C3BD47-9F1B-408D-816F-CEBF4F5C03C6}
 		{E88DB5F9-756D-45E3-B993-2E49C2822BDC} = {A1C3BD47-9F1B-408D-816F-CEBF4F5C03C6}
 		{320F58A6-0CED-4AE3-992C-24818B44E533} = {BC0D0D0A-DF35-4699-98BD-2D4807283016}
+		{A1B56DDD-3255-495B-831F-06F09C6218E4} = {4DE72EE1-04D1-4944-8BA6-8280971085B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {312A4DD1-D98D-4A39-B08E-E48EFE532826}

@@ -356,3 +356,169 @@ m.MyExtensionMethod();
 
 
 
+# REST APIs using ASP.NET Core
+- Microsoft.AspNetCore.App
+	- MVC
+	- Razor Views
+	- API Controllers
+		- ControllerBase as a base class for API Controllers
+		- This contains Action Methods i.e. methods those are invoked over HttpRequest
+		- Each Action  Method returns a Contract Named 'IActionResult'
+			- for REST APIs this is JSON Data 
+	- Dependency Injection
+		- Containser that defines registration for following  objects
+			- Security
+				- Authentication and Authorization
+			- Sessions
+			- Caching
+			- Cross-Origin-Resource-Sharing (CORS)
+			- Custom Services as [er the application's business logic
+			- Third Party Services
+		- The 'IServiceCollection' a contract interface that provides an access to the Dependency Container 
+			- Uses the 'ServiceDescriptor' class
+				- This class manages all registrations as per the Lifetime Requirements
+					- Singleton
+						- Object will ve live and shared across all sessions
+						- This object will be live till the app is running
+					- Scopped
+						- The object will be registead in DI Container and will be available for each new session and will be used throught the session
+						- One the session is closed or timeout the object will be garbage collected
+					- Transient
+						- The Object will be created for each new request (This is stateless)
+						- Once the response is send against that request the object will be garbage collected 
+		- Configuration
+		- The appSettings.json file
+			- This contains following
+				- Logging Configuration
+				- Database Connection
+				- Other application level settings e.g. Signerure for JSON Web Tokens
+		- IConfiguration is the interface used to read this file
+	- Hosting
+		- Host the ASP.NET Core App default in 'Kestral Engine'
+		- This manages following
+			- a Public endpoint to accept requests from clients over HTTP
+			- Dependency Injection Container
+			- Middewares
+				- IApplicationBuilder is a contract interfae used to Register Middlewares in the HTTP Pipeline 
+				 - Defaults
+					- Exception
+					- HttpsRedirection
+					- HSTS
+					- Routing
+					- CORS
+					- StaticFiles
+					- Custom Middlewares
+					- Authentication
+					- Authorization
+					- EndPoint
+			- The 'HttpContext'
+				- This class represents a current HTTP Pipeline where Request Processing Takes Place 
+
+# ASP Development Practically
+
+- Data Access Layer using Entity Framework Core
+	- ORM for Data Access
+		- Microsoft.EntityFrameworkCore
+			- DbContext Class
+				- Used to Manage the Db COnnection, MApping with Tables, and Transaction to Commit data back to database
+				- SaveChanges() / SaveChangesAsync(), COmmite the data to db (Complete DB Transaction) 
+			- DbSet&lt;T&gt;
+				- Map the CLR Class os name T with Database Table of name T
+				- e.g. If class Name is Employee then Table Name will be Employee 
+		- Microsoft.EntityFrameworkCore.SqlServer
+			- Providfe SQL Server Type System Access and aConnection to Application usign EF Core 
+		- Microsoft.EntityFrameworkCore.Ralational
+			- For CLR to Table Mapping Management 
+		- Microsoft.EntityFrameworkCor.Design
+			- Used for Following Approaches
+				- Database First
+					- Generate Data Access Code and Table to Class Mapping from Ready to Use Database (Production Ready)
+						- USe this in Migration app, you are migrating an existing app to .NET Core but want to use Database as it is
+						- Command to use Dtaabase First, to be executed from Project Folder on Command Prompt 
+````csharp
+// 1. MAkse sure that the EF is installed in global scope
+			dotnet tool install --global dotnet-ef
+// 2. Scaffold (generate) EF Core Object Model from Database
+
+			dotnet ef dbcontext scaffold "CONNECTION-STRING" Microsoft.EntityFramewotkCore.SqlServer -o [OUTPUT-FOLDER-TO-CREATE-ENTITIES]
+// e.g.
+	
+	dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Company;Integrated Security=SSPI"  Microsoft.EntityFramewotkCore.SqlServer -o Models
+	// THis will generate the DbContext class and Entity Classes in the Models folder of the Project
+````
+				- Code-First
+					- USe this when app is to be developed from scratch and which database is to be used is not known
+						- Product Based Companies
+					- We need to create Entity Classes (C# Classes with Public Properties)
+					- Generate Database and table from it
+````csharp
+ // 1. Create Entity classes and DbCOntext class
+ // 2. Run the Following Command to generate Db Migrations,  these are C# Code Scripts to create table(s)
+		dotnet ef migrations add [MIGRATION-NAME] -c [NAMESPACE.DBCONTEXT-CLASS-NAME]
+// 3. Update the Database, thsi will run Migration scripts to genberate Database and Tables
+		dotnet ef database update -c [NAMESPACE.DBCONTEXT-CLASS-NAME]
+
+````
+
+		- Microsoft.EntityFrameworkCor.Tools
+
+- Pseduo code for CRUD Operations using EF Core
+- COnsider the DbContext is CompanyContext, the you create its instance as 'ctx'
+- Conside CompanyContext has Employee Entity mapping as DbSet&lt;Employee&gt as 'Employees'
+
+- To Read All Employees
+	- var emps = ctx.Employees.ToList() / ctx.Employees.ToListAsync();
+- To Extract a record based on Primary Key
+	- var emp = ctx.Employees.Find(EMPNO) / ctx.Employees.FindAsync(EMPNO)
+
+- To Create a new Employees
+	- First Define an instance of EMployee and set its property values e.g. emp
+	- Append this object in Employees
+		- ctx.Employees.Add(emp); / ctx.Employees.AddAsync(emp);
+	- Commit Transaction
+		- ctx.SaveChanges() / ctx.SaveChangesAsync();
+
+- To Add MUltiple Employees	
+	- Define an array /  list of employees with values in it e.g. emps
+	- Use AddRange() method
+		- ctx.Employess.AddRange(emps) / ctx.Employess.AddRangeAsync(emps)
+
+- To Update record based on Primary Key
+	- Find Record based on Primary Key 
+	- Update property values for this searched record
+	- Commit Transaction
+
+- To Delete Record
+	- Find Record based on Primary Key 
+		 - var emp = ctx.Employees.Find(EMPNO) / ctx.Employees.FindAsync(EMPNO)
+	- Pass this object to remove method
+		- ctx.Employees.Remove(emp);
+	- Commit Transaction
+
+- BulkUpate() and BulkDelete() method for DbCOntext 
+
+- Use the following command when usign .NET 7 for Scaffolding
+- 
+dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Company;Integrated Security=SSPI;TrustServerCertificate=Yes" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
+- ControllerBase
+	- Base class for API Controllers
+	- Contanis following
+		- Properties
+			- ModelState, of the type ModelStateDictionary
+				- Used to valuidate incommind data for POST and PUT request based on the validation rules applied on entity classes
+			- HttpContext, HttpRequest, HttpResponse
+				- Create HTTP Pipeline and managing Request Processing
+			- RouteData, of the type 'RouteData'
+				- represents the current route expression 
+		- Methods
+			- Ok() return OkObjectResult, this represent JSON response to be send to client
+			- BadRequest(), BadRequestResult
+			- NotFound(), NotFoundResult
+			- .... and many more
+			- All these classes e.g. OkObjectResult, BadRequestResult, NotFoundResult, implement 'IActionResult'
+				- A Contract interface that executes the Action Method from Controller and generate Response
+	
+
+
+
