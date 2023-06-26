@@ -538,5 +538,65 @@ dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Company;Integrated S
 	- Roles
 	- Token
 
+# Core Components for every service aka APIs
+- Exception Management
+	- Make sure that the app is running against any type of process issures
+	- The error handling MUST be applied at global level to listen applicaiton wide error or exceptions
+	- The app MUST have capacility to execute a fallback logic to handle thses error w/o crashing the app
+- Communication Management from Browser Clients
+	- Creating a pool of allowed Origins to access the API with specific Headers as well as methods 
+		- Corss Origin Resource Sharing (CORS)
+	- Manage the Security
+		- Authentication based on Users
+		- Authorization based on roles and/or the Json Web Token (JWT)
+- Deployment Management
+	- On-Premises
+	- Cloud
 
 
+# Creating Custome Middleware
+- The class containing logic for Custom Middleware MUST be constructor injected with 'RequestDelegate' delegate
+- This delegate returns 'Task' (means and Async operations)
+- The input parameter to the delegate is 'HttpContext', the Http request Pipeline 
+- The class must define an 'InvokeAsync()' method that accepts input parameter as 'HttpContext' and returns Task, this method will be implicitly invoked by the RequestDelegate 
+	- This method will contain logic for custom middleware
+
+- To register this class as a custom middleware in pipeline, create an extension class
+	- The class MUSt be static
+	- The method MUST be static with the first parameter as 'IApplicationBuilder' 
+	- IApplicationBuilder, interface has an extension method as follows
+````csharp
+UseMiddleware<T>
+````
+	- Here T is the class that is constructor injected with requestDelegate and Containing InvokeAsync method that mataches with the signeture of RequestDelegate 
+
+# Identity
+- Microsoft.AspNetCore.Identity
+````csharp
+	- UserManager<IdentityUser> // for User Management, CReate, Read, Update, etc.
+	- RoleManager<IdentityRole> // for Role Management
+	- SignInManager<IdentityUser> // for Login and Logout
+
+	- Registration of Identity in DI Container in Hosting 
+
+  // This will Register the UserManager, RoleManager, and SignInManager in DI Container
+  // SO that we can Inject them
+    builder.Services.AddIdentity<IdentityUser,IdentityRole>()
+			.AddEntoityFrameworkStore(); // The database where IdentityInfo e.g. User and Roles are stored
+
+  // COnfiggure Identity Middleware
+
+   app.UseAuthentication();
+   app.UseAuthorization();	
+
+````
+- Microsoft.AspNetCore.Identity.EntityFrameworkCore
+	- IdentityUser, User Entity class that maps with AspNetUsers table in Database
+	- IdentityRole, Role Entity class that maps with AspNetRoles table in Database
+- System.IdentityModel.Tokens.Jwt
+	- Provides 'ClaimIdentity' that will be used to specify the Authorization information in Json Web Token 
+- Microsoft.AspNetCore.Authentication.JwtBearer
+	- Classes to Generate JWT 	
+
+# IFromFile interface
+	This interface is used to Read file(s) received in HTTP Request

@@ -102,4 +102,14 @@ Perform Following Operations by creating methods in string class
 	3. By Designation
 	4. By Location
 	- EmpName and Location
+
+
+# Date: 26-June-2023
+- Modify the Custom Exception Middleware to log error messages in Database
+	- You have to create the error databse with table names ErrorLogger in it with following columns
+		- LoggerId int identity Primary Key
+		- LogDate DateTime Not null
+		- ErrorLogMessage varchar(4000) Not null
 	
+	
+

@@ -1,5 +1,6 @@
 ﻿using Core_APIApps.Models;
 using Core_APIApps.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,9 +12,10 @@ namespace Core_APIApps.Controllers
     // by ASP.NET Core Request processing
     //https://localhost:[PORT]/api/DepartmentAPI
     //action: Name of the action to be included in URL
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     /// ApiController: Class that reads JSON data from HTTP Request Body for HTTP POST and PUT request and Map that data to CLR Object (aka Entity classs object) 
     [ApiController]
+    [Authorize]
     public class DepartmentAPIController : ControllerBase
     {
         private IService<Department, int> deptServ;
@@ -37,6 +39,7 @@ namespace Core_APIApps.Controllers
 
         /// <summary>
         /// HTTP Get request with URL Containg value for 'id'
+        /// http://localhost:7126/api/DepartmentAPI/{id}
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -62,8 +65,8 @@ namespace Core_APIApps.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Department dept)
         {
-            try
-            {
+            //try
+            //{
                 if (ModelState.IsValid)
                 {
                     if (dept.Capacity < 0) throw new Exception("Invalid value for Capacity");
@@ -71,11 +74,11 @@ namespace Core_APIApps.Controllers
                     return Ok(response);
                 }
                 return BadRequest(ModelState);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return BadRequest(ex.Message);
+            //}
             
         }
 
